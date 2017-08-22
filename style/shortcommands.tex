@@ -1,0 +1,145 @@
+%SYMBOLS
+\def\minus{%
+  \setbox0=\hbox{-}%
+  \vcenter{%
+    \hrule width\wd0 height \the\fontdimen8\textfont3%
+  }%
+}
+
+\newcommand{\rmplus}{\ensuremath{+}}
+\newcommand{\rmminus}{\ensuremath{\raisebox{0.1pt}{\scalebox{0.6}[0.75]{$-$}}}}
+
+\newcommand{\range}{\ensuremath{\text{--}}}
+\newcommand{\scriptn}[1]{\mathalpha{\raisebox{0.0pt}[0pt][0pt]{$\scriptstyle#1$}}}
+\newcommand{\scriptnr}[1]{\mathalpha{\raisebox{0.7pt}[0pt][0pt]{$\scriptstyle#1$}}}
+
+
+% PROCESSES
+\newcommand{\qcd}{\ensuremath{QCD}\xspace}
+\newcommand{\wjets}{\ensuremath{\textrm{W\mbox{+}jets}}\xspace}
+\newcommand{\zjets}{\ensuremath{\textrm{$Z/\gamma^*$\mbox{+}jets}}\xspace}
+\newcommand{\vjets}{\ensuremath{\textrm{V\mbox{+}jets}}\xspace}
+\newcommand{\ttbar}{\ensuremath{\textrm{t}\bar{\textrm{t}}}\xspace}
+\newcommand{\tw}{\ensuremath{\textrm{tW}}\xspace}
+\newcommand{\tch}{\ensuremath{t\textrm{\mbox{-}channel}}\xspace}
+
+
+% VARIABLES
+\newcommand{\pt}{\ensuremath{p_\textrm{T}}\xspace}
+\newcommand{\muiso}{\ensuremath{I_\textrm{rel.}^\scriptnr{\mu}}\xspace}
+\newcommand{\eiso}{\ensuremath{I_\textrm{rel.}^\scriptnr{\textrm{e}}}\xspace}
+\newcommand{\mtop}{\ensuremath{m_{\mu\nu \textrm{b}}}\xspace}
+\newcommand{\mw}{\ensuremath{m_{\textrm{W}}}\xspace}
+\newcommand{\met}{\ensuremath{\slashed{E}_{\textrm{T}}}\xspace}
+\newcommand{\mtw}{\ensuremath{m_{\textrm{T}}(\textrm{W})}\xspace}
+\newcommand{\pvmiss}{\ensuremath{\vec{\slashed{p}}_\textrm{T}}\xspace}
+\newcommand{\pvmissx}{\ensuremath{\slashed{p}_{x}}\xspace}
+\newcommand{\pvmissy}{\ensuremath{\slashed{p}_{y}}\xspace}
+\newcommand{\pvmissz}{\ensuremath{\slashed{p}_{z}}\xspace}
+\newcommand{\bdt}{\ensuremath{\textrm{\gls{bdt}}}\xspace}
+\newcommand{\bdtqcd}{\ensuremath{\textrm{\gls{bdt}}_\textrm{multi.}}\xspace}
+\newcommand{\bdttch}{\ensuremath{\textrm{\gls{bdt}}_\textrm{t-ch.}}\xspace}
+\newcommand{\bdttt}{\ensuremath{\textrm{\gls{bdt}}_\mathrm{t\bar{t}/W}}\xspace}
+\newcommand{\kt}{\ensuremath{k_\textrm{T}}\xspace}
+
+\newcommand{\aem}{\ensuremath{{\alpha_\textrm{EM}}}\xspace}
+\newcommand{\aw}{\ensuremath{{\alpha_\textrm{W}}}\xspace}
+\newcommand{\as}{\ensuremath{{\alpha_\textrm{s}}}\xspace}
+
+\newcommand{\ckm}[1]{\ensuremath{{\textrm{V}_\textrm{#1}}}\xspace}
+\newcommand{\vtb}{\ckm{tb}}
+\newcommand{\vts}{\ckm{ts}}
+\newcommand{\vtd}{\ckm{td}}
+
+
+\newcommand{\Amu}{\ensuremath{A_{\mu}}\xspace}
+\newcommand{\AmuT}{\ensuremath{A_{\mu}(t)}\xspace}
+\newcommand{\AmuTbar}{\ensuremath{A_{\mu}(\bar{t})}\xspace}
+\newcommand{\AmuTplusTbar}{\ensuremath{A_{\mu}(t+\bar{t})}\xspace}
+  
+  
+
+%UNITS
+\newcommand{\eV}{\ensuremath{\textrm{eV}}\xspace}
+\newcommand{\keV}{\ensuremath{\textrm{keV}}\xspace}
+\newcommand{\MeV}{\ensuremath{\textrm{MeV}}\xspace}
+\newcommand{\GeV}{\ensuremath{\textrm{GeV}}\xspace}
+\newcommand{\TeV}{\ensuremath{\textrm{TeV}}\xspace}
+
+\newcommand{\pb}{\ensuremath{\textrm{pb}}\xspace}
+\newcommand{\fb}{\ensuremath{\textrm{fb}}\xspace}
+\newcommand{\ab}{\ensuremath{\textrm{ab}}\xspace}
+
+%PARTICLES
+\newcommand{\photon}{\ensuremath{{\gamma}}\xspace}
+\newcommand{\zboson}{\ensuremath{{\textrm{Z}^{0}}}\xspace}
+\newcommand{\wboson}{\ensuremath{{\textrm{W}^{\pm}}}\xspace}
+\newcommand{\higgs}{\ensuremath{{\textrm{H}^{0}}}\xspace}
+
+
+
+% FORMATTING
+\newcommand{\typew}[1]{\texttt{\detokenize{#1}}}
+\newcount\colveccount
+\newcommand*\colvec[1]{
+    \global\colveccount#1
+    \begin{pmatrix}
+    \colvecnext
+}
+\def\colvecnext#1{
+    #1
+    \global\advance\colveccount-1
+    \ifnum\colveccount>0
+        \\
+        \expandafter\colvecnext
+    \else
+        \end{pmatrix}
+    \fi
+}
+
+% OTHER
+\newcommand{\msbar}{\ensuremath{\overline{\text{MS}}}\xspace}
+\newcommand{\deltabeta}{\ensuremath{\Delta\beta}\xspace}
+\newcommand{\effarea}{\ensuremath{\textrm{A}_\textrm{eff.}^{\rho}}\xspace}
+
+\newcommand{\invfb}{\ensuremath{\textrm{fb}^\scriptn{-1}}\xspace}
+\newcommand{\invpb}{\ensuremath{\textrm{pb}^\scriptn{-1}}\xspace}
+\newcommand{\invnb}{\ensuremath{\textrm{nb}^\scriptn{-1}}\xspace}
+\newcommand{\jprime}{\ensuremath{j^{\prime}}\xspace}
+\newcommand{\qprime}{\ensuremath{q^{\prime}}\xspace}
+\newcommand{\bjtop}{\ensuremath{j_\textrm{b,top}}\xspace}
+
+\newcommand{\GEANT}[1][]{\texttt{\gls[#1]{geant}}\xspace}
+\newcommand{\HATHOR}[1][]{\texttt{\gls[#1]{hathor}}\xspace}
+\newcommand{\POWHEG}[1][]{\texttt{\gls[#1]{powheg}}\xspace}
+\newcommand{\MG}[1][]{\texttt{\gls[#1]{mg}}\xspace}
+\newcommand{\AMC}[1][]{\texttt{\gls[#1]{amc}}\xspace}
+\newcommand{\MGAMC}[1][]{\texttt{\gls[#1]{mgamc}}\xspace}
+\newcommand{\COMPHEP}[1][]{\texttt{\gls[#1]{comphep}}\xspace}
+\newcommand{\TAUOLA}[1][]{\texttt{\gls[#1]{tauola}}\xspace}
+\newcommand{\PHOTOS}[1][]{\texttt{\gls[#1]{photos}}\xspace}
+\newcommand{\MADSPIN}[1][]{\texttt{\gls[#1]{madspin}}\xspace}
+\newcommand{\PYTHIA}[1][]{\texttt{\gls[#1]{pythia}}\xspace}
+\newcommand{\HERWIG}[1][]{\texttt{\gls[#1]{herwig}}\xspace}
+\newcommand{\SHERPA}[1][]{\texttt{\gls[#1]{sherpa}}\xspace}
+\newcommand{\LHAPDF}[1][]{\texttt{\gls[#1]{lhapdf}}\xspace}
+
+\newcommand{\TMVA}[1][]{\texttt{\gls[#1]{tmva}}\xspace}
+\newcommand{\TUNFOLD}[1][]{\texttt{\gls[#1]{tunfold}}\xspace}
+\newcommand{\THETA}[1][]{\texttt{\gls[#1]{theta}}\xspace}
+\newcommand{\MINUIT}[1][]{\texttt{\gls[#1]{minuit}}\xspace}
+\newcommand{\ADABOOST}[1][]{\texttt{\gls[#1]{adaboost}}\xspace}
+\newcommand{\GRADIENTBOOST}[1][]{\texttt{\gls[#1]{gradientboost}}\xspace}
+\newcommand{\RIVET}[1][]{\texttt{\gls[#1]{rivet}}\xspace}
+\newcommand{\TOPFIT}[1][]{\texttt{\gls[#1]{topfit}}\xspace}
+\newcommand{\TOPFITTER}[1][]{\texttt{\gls[#1]{topfitter}}\xspace}
+
+\newcommand{\TOPPP}[1][]{\texttt{\gls[#1]{toppp}}\xspace}
+\newcommand{\FEWZ}[1][]{\texttt{\gls[#1]{fewz}}\xspace}
+\newcommand{\MCFM}[1][]{\texttt{\gls[#1]{mcfm}}\xspace}
+
+\newcommand{\FSIM}[1][]{\texttt{\gls[#1]{fsim}}\xspace}
+\newcommand{\HEPMC}[1][]{\texttt{\gls[#1]{hepmc}}\xspace}
+\newcommand{\LHEF}[1][]{\texttt{\gls[#1]{lhef}}\xspace}
+\newcommand{\GFLASH}[1][]{\texttt{\gls[#1]{gflash}}\xspace}
+

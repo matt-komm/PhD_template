@@ -1,0 +1,619 @@
+%% Xheader by mKomm
+%% Use with book (standard) document class not KOMA!
+
+\usepackage[a4paper,total={12cm,20cm},headsep=10pt,headheight=12pt,footskip=0pt,centering,includefoot,includehead]{geometry}
+%\usepackage[papersize={17.5cm,24.75cm},total={12cm,20cm},headsep=10pt,headheight=12pt,footskip=0pt,centering,includefoot,includehead]{geometry}
+%\usepackage[nouppercase,headsepline]{scrpage2}
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>} %fix rendering of pages to nonalpha
+\usepackage[nouppercase]{scrpage2}
+\usepackage{ifthen}
+\usepackage{amsmath}
+\allowdisplaybreaks[1] %allows breaks but avoids them as much as possible
+
+%%FONTS
+
+%special
+%\usepackage{calligra}
+%\usepackage{miama} %activate with \fmmfamily
+%\usepackage{humanist} %activate with \hminfamily
+%\usepackage{auncial} %activate with \aunclfamily
+%\usepackage{pbsi}
+%\usepackage{aurical}
+%\usepackage{carolmin} %activate with \cminfamily
+%\usepackage{sqrcaps}
+%\usepackage{inslrmaj}
+%\usepackage{trajan} %activate with \trjnfamily
+
+
+
+%\usepackage{euler}
+
+%serif
+
+%\usepackage{mathpple}
+%\usepackage{newtxtext,newtxmath}
+%\usepackage[scaled=1]{newpxmath,newpxtext}
+%\usepackage{mbtimes}
+
+%\usepackage{kpfonts}
+
+
+
+\usepackage[sc]{mathpazo}
+%\usepackage{pxfonts}
+
+%\usepackage{kpfonts}
+
+%\usepackage[scale=1.]{tgpagella}
+
+
+%\usepackage{times}
+%\usepackage{newcent}
+%\usepackage[bitstream-charter]{mathdesign}
+
+
+%\usepackage{palatino} %cms
+%\usepackage{mathpazo} %cms
+
+%\usepackage[sc]{mathpazo}
+%\usepackage{newtxmath}
+%\usepackage[utopia]{mathdesign}
+%\usepackage{fourier}
+%\usepackage[charter]{mathdesign}
+%\usepackage{mathptmx}
+
+%sans serif
+%\usepackage{comfortaa}
+%\usepackage[scale=0.9]{tgheros}
+%\usepackage[light,math]{kurier}
+%\usepackage[scale=1.09]{biolinum}
+%\usepackage{cabin}
+%\usepackage[scale=1.05]{carlito}
+%\renewcommand{\sfdefault}{iwona}
+%\usepackage[light]{roboto}
+%\usepackage{tgadventor}
+%\usepackage[scaled]{luximono}
+
+%\usepackage{PTSansNarrow}
+%\usepackage{PTSans}
+%\renewcommand{\sfdefault}{pag} %avant garde
+%\usepackage[sfdefault]{AlegreyaSans}
+\usepackage[scaled=0.92]{helvet}
+
+
+
+%\usepackage[sf]{quattrocento}
+%\usepackage{classico}
+
+
+%\usepackage{libertinust1math}
+
+%typewriter
+%\usepackage{courier}
+\usepackage[scaled=1.05]{inconsolata}
+
+
+
+\usepackage[OT1,T1]{fontenc}
+\usepackage[latin9]{inputenc}
+
+
+\pagestyle{scrheadings}
+\usepackage{scrextend}
+\usepackage{lipsum}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{xcolor} %more advance color usage
+\definecolor{ucl}{rgb}{0.05,0.15,0.45}
+%do not change color anymore!!! - look ok with bold chapter in headers
+\definecolor{gray}{rgb}{0.71,0.71,0.71}
+\definecolor{textgray}{rgb}{0.71,0.71,0.71}
+\definecolor{lightgray}{rgb}{0.71,0.71,0.71}
+\definecolor{darkgreen}{rgb}{0.0,0.45,0.}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+
+\usepackage{array} %tabellanartige Strukturen z.B. fuer Formeln Spalten im mathematischen Modus
+\usepackage{calc}%erweitert setlength etc. damit auch arithmetische Funktionen benutzt werden koennen
+\usepackage[hyphens,obeyspaces]{url}
+\Urlmuskip=0mu plus 1mu\relax
+\usepackage{chngcntr} %fuer nummerierung der figures, tables, footnotes
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=nonfrench,factor=1100,stretch=15,shrink=15]{microtype}
+\SetTracking{encoding={*}, shape=sc}{0}
+\usepackage{slashed}
+\usepackage{bm} % bold math symbols
+\usepackage{afterpage}
+\usepackage{graphicx,graphics}
+\usepackage{tocloft}
+\usepackage{relsize} %defines mathlarger
+\usepackage{xfrac}
+\usepackage{supertabular}
+\usepackage{booktabs} %toprule stuff
+\setlength{\heavyrulewidth}{1pt}
+\usepackage{stackengine}
+\usepackage{scalerel}
+%\usepackage{showframe} % shows page margins
+%\renewcommand*\ShowFrameColor{\color{lightgray}}
+%\overfullrule=1mm %marks overfull boxes
+\usepackage{etoolbox}
+\usepackage{flafter} %prevent float to appear to early
+\usepackage{hanging}
+\usepackage[export]{adjustbox} %clip figures
+\usepackage{mdframed}
+\usepackage{verse}
+\usepackage{rotating}
+\usepackage{cite} % turns citations [1,2,3] -> [1-3]
+\usepackage{pdflscape}
+\usepackage{tikz} %for drawing
+\usetikzlibrary{calc,shapes,matrix}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage[Symbolsmallscale]{upgreek} % for upright greek symbols
+\usepackage{xr} %ref over documents
+\usepackage{axodraw4j}
+\usepackage[hyperfootnotes=false,colorlinks=false,hidelinks=false,breaklinks=true,linkcolor=gray]{hyperref}
+%\usepackage[hyperfootnotes=false,breaklinks=true,colorlinks=false,pdfborder={20 20 0.5},citebordercolor=green]{hyperref}
+%\usepackage[hyperfootnotes=false,colorlinks=true,breaklinks=true,allcolors=darkblue,citecolor=darkgreen]{hyperref}
+\usepackage[disable,color=white,linecolor=red,bordercolor=red,textsize=small]{todonotes}
+%\usepackage[color=white,linecolor=red,bordercolor=red,textsize=small]{todonotes}
+\setlength{\marginparwidth}{1.9cm}
+\usepackage[perpage]{footmisc}
+\usepackage{xspace} %intelligent spacing e.g. after inline equations
+\usepackage[nottoc]{tocbibind} %puts references into toc
+%\usepackage[nopostdot,toc,acronym,style=super]{glossaries} %list of abbreviations
+\usepackage[nopostdot,toc,acronym,style=super]{glossaries-extra}
+\usepackage{glossary-mcols}
+\usepackage{stringstrings} %substrings
+\usepackage{anyfontsize}
+
+
+%\usepackage{draftwatermark}
+%\SetWatermarkText{\includegraphics{BigDraft}}
+%\SetWatermarkScale{1}
+
+%global styles
+%\newcommand*{\numberfont}{\fontfamily{pplj}\selectfont}
+%\newcommand*{\numberfont}{\fontfamily{qcs}\selectfont}
+%\newcommand*{\numberfont}{\fontfamily{qhv}\selectfont}
+%\newcommand*{\numberfont}{\fontfamily{pbk}\selectfont}
+
+\newcommand*{\numberfont}{\sffamily}
+\newcommand*{\sectionfont}{\sffamily\bfseries}
+%\newcommand*{\sectionfont}{\usefont{T1}{PTSansNarrow-TLF}{m}{n}}
+
+
+%\newcommand*{\numberfont}{\usefont{T1}{PTSans-TLF}{m}{n}}
+%\newcommand*{\sectionfont}{\usefont{T1}{PTSansNarrow-TLF}{m}{n}}
+
+%\newcommand*{\numberfont}{\usefont{T1}{LinuxBiolinumT-OsF}{m}{n}}
+%\newcommand*{\sectionfont}{\usefont{T1}{LinuxBiolinumT-OsF}{m}{n}}
+
+\newlength{\myrulewidth}
+\setlength{\myrulewidth}{0.75pt}
+
+\def\hrulefill{\leavevmode\leaders\hrule height \myrulewidth\hfill\kern\z@}
+
+
+%line numbers
+\usepackage{lineno} 
+\renewcommand\linenumberfont{\small\color{textgray}\normalfont\ttfamily}
+%\linenumbers
+
+%abbreviations
+\makeglossaries
+
+%\renewcommand{\glstextformat}[1]{#1}
+%\renewcommand*{\glstextformat}[1]{\textsf{\textsc{#1}}}
+%\renewcommand{\glsnamefont}[1]{\boldmath{\textbf{#1}}}
+
+\let\glsold\gls
+\let\glsplold\glspl
+\let\Glsold\Gls
+\let\Glsplold\Glspl
+
+\renewcommand{\gls}[2][]{\acrshort[#1]{#2}}
+\renewcommand{\glspl}[2][]{\acrshortpl[#1]{#2}}
+\renewcommand{\Gls}[2][]{\Acrshort[#1]{#2}}
+\renewcommand{\Glspl}[2][]{\Acrshortpl[#1]{#2}}
+
+\newcommand{\glshere}[1]{\acrfull[format=hyperbf]{#1}}
+\newcommand{\glsplhere}[1]{\acrfullpl[format=hyperbf]{#1}}
+\newcommand{\Glshere}[1]{\Acrfull[format=hyperbf]{#1}}
+\newcommand{\Glsplhere}[1]{\Acrfullpl[format=hyperbf]{#1}}
+
+\newcommand{\glsmark}[1]{\acrshort[format=hyperbf]{#1}}
+\newcommand{\glsplmark}[1]{\acrshortpl[format=hyperbf]{#1}}
+\newcommand{\Glsmark}[1]{\Acrshort[format=hyperbf]{#1}}
+\newcommand{\Glsplmark}[1]{\Acrshortpl[format=hyperbf]{#1}}
+
+\newcommand{\glsfull}[1]{\acrfull[format=hyperrm]{#1}}
+\newcommand{\glsplfull}[1]{\acrfullpl[format=hyperrm]{#1}}
+\newcommand{\Glsfull}[1]{\Acrfull[format=hyperrm]{#1}}
+\newcommand{\Glsplfull}[1]{\Acrfullpl[format=hyperrm]{#1}}
+
+\setlength{\glspagelistwidth}{\textwidth}
+\setlength{\tabcolsep}{1ex}
+\setlength{\extrarowheight}{0.0cm}
+\setlength{\glsdescwidth}{1.\textwidth}
+\setlength{\glstreeindent}{0pt}
+
+\renewcommand*{\glsgroupskip}{}
+
+
+\setlength{\columnsep}{0.06\textwidth}
+
+
+
+\newglossarystyle{myglstyle}{%
+ % put the glossary in a longtable environment:
+ \renewenvironment{theglossary}%
+  %{\begin{multicols}{2}\begin{description}}%begin
+  %{\end{description}\end{multicols}}%end
+   {\vspace*{-1.\baselineskip}\begin{multicols*}{2}}%begin
+   {\end{multicols*}}%end
+ % Set the table's header:
+ \renewcommand*{\glossaryheader}{}%
+ % No heading between groups:
+  \renewcommand*{\glsgroupheading}[1]{
+  %\item\boldmath{\textbf{\glsgetgrouptitle{##1}}}
+  }%
+ % Main (level 0) entries displayed in a row:
+  \renewcommand*{\glossaryentryfield}[5]{%
+    \begin{minipage}[t]{\columnwidth}
+    %\begin{list}{}{\leftmargin=1em \itemindent=-1em}
+    %\item %
+    \hangindent=1.5em
+    \glstarget{##1}{\boldmath{\textbf{##2}}}\quad ##3 \hspace{0.3em} ##5\\[-0.4\baselineskip]
+    %\end{list}
+    \end{minipage}
+    %\glstarget{##1}{\boldmath{\textbf{##2}}} \hspace{0.3em} ##3 \hspace{0.5em} ##5\par
+    %\glstarget{##1}\boldmath{\textbf{##2}} \hspace{0.3em} ##3 \hspace{0.5em} ##5%\\[0.0\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip]
+}
+}
+
+
+
+
+%% Setup TOC
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\renewcommand{\cftchapfont}{\rm\bf}
+\renewcommand{\cftsecfont}{}
+\setlength{\cftbeforechapskip}{1\baselineskip}
+\setlength{\cftbeforesecskip}{0.05\baselineskip}
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+%\newcommand{\appendixchapter}[1]{\tocless\chapter{#1}\addcontentsline{toc}{chapter}{\textbf{\chaptername~\thechapter\quad#1}}}
+\newcommand{\appendixchapter}[1]{\chapter{#1}}
+
+%% Setup HEADER/FOOTER
+\clearscrheadfoot
+\ihead{\headmark}
+\ohead[\pagemark]{\pagemark}
+\renewcommand{\chaptermark}[1]{\markboth{{\numberfont\color{textgray}\bfseries\chaptername~\thechapter{}.}\enspace #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{{\numberfont\color{textgray}\bfseries\thesection{}.}\enspace #1}}
+\renewcommand{\subsectionmark}[1]{\markright{{\numberfont\color{textgray}\bfseries\thesubsection{}.}\enspace #1}}
+\fboxrule=\myrulewidth
+%\ohead[\vspace{-0.6pt}\fcolorbox{gray}{gray!30}{\parbox[c][][c]{0.6cm}{\pagemark}}]{\vspace{-0.6pt}\fcolorbox{gray}{gray!30}{\parbox[c][][c]{0.6cm}{\pagemark}}}
+
+%\renewcommand{\pagemark}{\markboth{\bf\color{gray}\thepage}{\bf\color{gray}\thepage}}
+
+\setheadsepline{\myrulewidth}[\color{gray}]
+%Vergroessere head&foot Breite
+%\setheadwidth[0.5cm]{text}
+%\setfootwidth[0.5cm]{text}
+%Headschrift
+\renewcommand*{\headfont}{\numberfont\small\slshape}
+%\renewcommand*{\headfont}{\numberfont\small}
+%\renewcommand{\headrulewidth}{0.5pt}
+%alternativ: \renewcommand*{\headfont}{\normalfont\sffamily\scshape\large}
+%Footschrift
+%\renewcommand*{\footfont}{\numberfont}
+%Seitenzahlschrift
+\renewcommand*{\pnumfont}{\numberfont\small\upshape}
+
+
+\renewcommand*\chapterpagestyle{empty} %removes header from all chapter pages
+\addtocontents{toc}{\protect\thispagestyle{empty}} %hack to remove also header from 1st TOC page
+
+\KOMAoptions{cleardoublepage=scrheadings} %adds header to cleared double pages
+
+
+%% make env for pagestyle
+\newenvironment{clearedpagestyle}{\clearpage\pagestyle{empty}\KOMAoptions{cleardoublepage=empty}}{\clearpage\pagestyle{scrheadings}\KOMAoptions{cleardoublepage=scrheadings}}
+
+
+
+\mdfdefinestyle{chstyle}{%
+    linewidth=2\myrulewidth,
+    leftmargin=0pt,
+    innerleftmargin=0.05\textwidth,
+    rightmargin=0pt,
+    innerrightmargin=0pt,
+    innertopmargin=6pt,
+    innerbottommargin=6pt,
+    skipabove=4pt,
+    skipbelow=0pt,
+    linecolor=gray,
+    topline=false,
+    rightline=false,
+    bottomline=false,
+    leftline=true
+}
+\mdfdefinestyle{unchstyle}{%
+    linewidth=2\myrulewidth,
+    leftmargin=0pt,
+    innerleftmargin=0.05\textwidth,
+    rightmargin=0pt,
+    innerrightmargin=0pt,
+    innertopmargin=15pt,
+    innerbottommargin=15pt,
+    skipabove=4pt,
+    skipbelow=0pt,
+    linecolor=gray,
+    topline=false,
+    rightline=false,
+    bottomline=false,
+    leftline=true
+}
+
+\newcommand*\ruleline[1]{\noindent\raisebox{1ex}{\makebox[\linewidth]{{\color{gray}\hrulefill}\hspace{1ex}\raisebox{-.65ex}{#1}}}}
+
+%numbered chapters
+\def\@makechapterhead#1{
+     \parbox{\textwidth}{
+        \chapterheadstartvskip
+        \microtypesetup{protrusion=false}
+        \parbox[c][][c]{0.1\textwidth}{\color{gray}\numberfont\fontsize{30}{30}\selectfont\centering\thechapter{}.}
+        \hspace{0.02\textwidth}
+        \parbox[c][][c]{0.87\textwidth}{\begin{mdframed}[style=chstyle]\usekomafont{chapter}{\LARGE\color{gray}\chaptername}\\[0.2\baselineskip]#1\end{mdframed}}
+        \chapterheadendvskip
+        \microtypesetup{protrusion=true}
+    }
+}
+
+%unnumbered chapter
+\def\@makeschapterhead#1{
+     \parbox{\textwidth}{
+        \chapterheadstartvskip
+        \microtypesetup{protrusion=false}
+        %\colorbox{gray}{\parbox[t][][b]{0.21\textwidth}{\color{white}\usekomafont{chapter}\hfill\chaptername\\\mbox{}\hfill\thechapter{}.}}
+        %\parbox[t][][b]{0.27\textwidth}{\color{gray}\usekomafont{chapter}\hfill{\chaptername}~\thechapter{}.}
+        %\hspace{0.04\textwidth}
+        %\parbox[t][][b]{0.67\textwidth}{\begin{mdframed}[style=chstyle]\usekomafont{chapter}#1\end{mdframed}}\\[0.75cm]
+        %\parbox[t][][b]{0.99\textwidth}{\usekomafont{chapter}\hangindent=1.2em{\color{gray}\chaptername~\thechapter{}.\hspace*{0.8em}\rule{2.6\myrulewidth}{14pt}}\hspace*{1em}#1}
+        \hspace{0.05\textwidth}
+        \parbox[c][][c]{0.87\textwidth}{\begin{mdframed}[style=unchstyle]\usekomafont{chapter}#1\end{mdframed}}
+        \chapterheadendvskip
+        \microtypesetup{protrusion=true}
+    }
+}
+
+%toc chapter
+\def\@cftmaketoctitle{%
+ %\vspace*{\cftbeforetoctitleskip}
+ %\interlinepenalty\@M
+ %{\cfttoctitlefont\contentsname}{\cftaftertoctitle}
+ \chapter*{\contentsname}
+ \cftmarktoc
+ \par\nobreak
+ %\vskip \cftaftertoctitleskip
+ %\vskip -\cftbeforechapskip
+ %\@afterheading
+}
+
+
+\setkomafont{chapter}{\normalfont\fontsize{17}{22}\selectfont\sectionfont}
+\renewcommand*{\chapterheadstartvskip}{\vspace{0.3cm}}
+\renewcommand*{\chapterheadendvskip}{\vspace{0.5cm}}
+
+\setkomafont{section}{\normalfont\fontsize{13}{13}\sectionfont}
+\setkomafont{subsection}{\normalfont\fontsize{13}{13}\sectionfont}
+\setkomafont{subsubsection}{\normalfont\fontsize{13}{13}\sectionfont}
+
+\RedeclareSectionCommands[
+  beforeskip=0.65\baselineskip plus 0.15\baselineskip minus 0.1\baselineskip,
+  afterskip=0.05\baselineskip
+]{section,subsection,subsubsection}
+
+\renewcommand{\@seccntformat}[1]{{\parbox[b][0.7\baselineskip][b]{\widthof{\csname the#1\endcsname.\hspace{1ex}}}{\csname the#1\endcsname.\hspace{1ex}}}} %dot after the(sub)section
+
+
+%strecke zeilenabstände im table
+\newcommand{\mytablestrech}{1.4}
+\renewcommand{\arraystretch}{\mytablestrech}
+
+%Schicke Bild- und Tabellenbeschreibungen
+
+\usepackage[format=plain,indention=0.0cm]{caption} %use same as for parindent
+\newlength{\letterheight}
+\settoheight{\letterheight}{T}
+\DeclareCaptionLabelSeparator{vline}{.\hspace{1.ex}{\color{gray}\rule{2\myrulewidth}{\letterheight}}\hspace{1.3ex}}
+%\usepackage{subcaption}
+\usepackage{subfig}
+%\captionsetup{width=0.93\textwidth}
+
+\setkomafont{captionlabel}{\bfseries\numberfont\small}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thesubfigure}{\alph{subfigure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+%abstand zwischen caption und figure,table
+\captionsetup[figure]{labelsep=vline,font={small,stretch=1.12},farskip=3pt,aboveskip=0.6\baselineskip,belowskip=0.0\baselineskip}
+\captionsetup[table]{labelsep=vline,font={small,stretch=1.12},aboveskip=0.5\baselineskip,belowskip=0.0\baselineskip}
+\captionsetup[subfloat]{labelsep=space,font={small,stretch=1.12},farskip=5pt,captionskip=3pt} %distance between fig & subcaption
+
+\setlength\floatsep{1.2\baselineskip plus 3pt minus 1pt}
+\setlength\textfloatsep{1\baselineskip plus 7pt minus 7pt}
+\setlength\intextsep{1\baselineskip plus 7pt minus 7pt}
+
+%placements
+\newcommand{\mytable}[3][htb]{
+    \begin{table}[#1]
+    \centering
+    \begin{minipage}[c]{0.93\textwidth}
+    \caption{#2}
+    \centering
+    \small #3
+    \end{minipage}
+    \end{table}
+}
+
+\newcommand{\mytablesideways}[3][htb]{
+    \begin{sidewaystable}[#1]
+    \centering
+    \caption{#2}
+    \centering
+    \small #3
+    \end{sidewaystable}
+}
+
+\newcommand{\myfigure}[3][htb]{
+    \begin{figure}[#1]
+    \centering
+    \begin{minipage}[c]{0.93\textwidth}
+    \centering
+    #3
+    \caption{#2}
+    \end{minipage}
+    \end{figure}
+}
+
+\newcommand{\myfiguresideways}[3][htb]{
+    \begin{sidewaysfigure}[#1]
+    \centering
+    #3
+    \centering
+    \caption{#2}
+    \end{sidewaysfigure}
+}
+
+
+%references font
+%\renewcommand\theremark{{\itshape\thesection\arabic{remark}}\reset@font}
+
+%import \star from computer modern (more thin symbol)
+%\DeclareSymbolFont{cmm-oml}{OML}{cmm}{m}{n}
+%\DeclareMathSymbol{\star}{0}{cmm-oml}{"3F}
+
+
+%\DeclareSymbolFont{ppl-oms}{OMS}{ppl}{m}{n}
+%\DeclareSymbolFont{ppl-omx}{OMX}{ppl}{m}{n}
+%\DeclareMathRadical{\newsqrt}{ppl-omx}{"70}{ppl-oms}{"70}
+
+% New definition of square root:
+% it renames \sqrt as \oldsqrt
+\let\oldsqrt\sqrt
+%\let\sqrt\newsqrt
+% it defines the new \sqrt in terms of the old one
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.38pt\box2}}
+
+% define prime with better vertical alignment and no vertical space to fix line spreading
+\let\oldprime\prime
+\def\prime{\mathalpha{\raisebox{-0.5pt}[0pt][0pt]{$\scriptstyle\oldprime$}}}
+
+%better hat
+\let\oldhat\hat
+\def\stacktype{L}
+\stackMath
+\def\dyhat{.067ex}
+\renewcommand\hat[1]{\ThisStyle{%
+              \stackon[\dyhat]{\SavedStyle#1}
+                              {\SavedStyle\oldhat{\phantom{#1}}}}}
+
+
+%replace tilde with widetilde
+\let\oldtilde\tilde
+\renewcommand{\tilde}[1]{\widetilde{#1}}
+
+%replace bar with overline
+\DeclareRobustCommand{\coverline}[1]{% clever overline
+  \binrel@{#1}\binrel@@{\overline{#1}}%
+}
+\let\oldbar\bar
+\renewcommand{\bar}[1]{\coverline{#1}}
+
+
+\everymath{
+    \thinmuskip=1mu plus 1mu 
+    \medmuskip=2mu plus 2mu 
+    \thickmuskip=3mu plus 2mu minus 1mu
+}
+
+
+%no linebreaks for inline equations
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+
+%\def\prime{\mathpalette\myprime} 
+%\def\myprime{\setbox0=-} %\raisebox{4.5pt}{$\scriptstyle\oldprime$}}
+
+%% change equation numbering style
+\def\tagform@#1{\maketag@@@{\ignorespaces{\small\numberfont(#1.)\enspace}\unskip\@@italiccorr}} %kill parenthesis
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+
+%% paragraphs
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+    {-0.1\parskip}%
+    {-1em}%
+    {\normalfont\normalsize\bfseries}
+}
+
+%%chapter intro
+\newcommand{\intro}[1]{\parbox{\textwidth}{\textsl{#1}}\\[0.5cm]}
+
+
+%% footnote
+%\def\@fnsymbol#1{\ifcase#1\or $\bullet$\or $\bullet\bullet$\or $\bullet\bullet\bullet$\or$\bullet\bullet\bullet\bullet$\or $\bullet\bullet\bullet\bullet\bullet$\or \else\@ctrerr\fi} %define alternative numbering using *, **, ***, ...
+\def\@fnsymbol#1{{\tiny(}\ifcase#1\or $\boldsymbol{\star}$\or $\boldsymbol{\star}\boldsymbol{\star}$\or $\boldsymbol{\star}\boldsymbol{\star}\boldsymbol{\star}$\or $\boldsymbol{\star}\boldsymbol{\star}\boldsymbol{\star}\boldsymbol{\star}$\or \else\@ctrerr\fi{\tiny)}}
+%\renewcommand{\thefootnote}{\numberfont\arabic{footnote}} %style
+\renewcommand{\thefootnote}{\numberfont\fnsymbol{footnote}} %style
+%\counterwithin*{footnote}{page} %reset counter per new page
+\setlength{\footnotesep}{\parskip}
+\addtokomafont{footnote}{\small\setstretch{1.12}}
+\renewcommand{\footnoterule}{%
+  \vspace{-0.5\parskip}
+  \vspace{\footskip}
+  {\color{gray}\hrule width 0.35\textwidth height \myrulewidth}
+  \kern 2pt
+  
+  %\vspace{-0.5\footnotesep}
+}
+%\renewcommand{\footnotelayout}{}
+
+\deffootnote[2em] %mark width - allows 4 **** to be placed
+      {2em} %indent of text
+      {1em} %indent of paragraph
+      {\textsuperscript{\thefootnotemark}\hspace{0.3em}} %def mark
+      
+%% Lists
+\setlist[itemize,enumerate]{leftmargin=0.05\textwidth,itemsep=0.5\parskip,parsep=0pt,partopsep=0pt, topsep=0.0\parskip}
+\setlist[description]{leftmargin=0.05\textwidth,font=\normalfont\rmfamily\bfseries\boldmath,itemsep=0.5\parskip,parsep=0pt,partopsep=0pt, topsep=0.0\parskip}
+\renewcommand*{\descriptionlabel}[1]{\hspace{\labelsep}\descfont #1\medskip}
+
+%Sonst================================================
+\setlength{\jot}{2.0ex plus 0.5ex minus 0.2ex} %Vergroessert Zeilenabstand in align-Umgebung
+
+
+%% Bib
+\setlength{\labelsep}{1.25ex}
+
+
+\newcommand{\setupTextStyle}{
+    \setlength{\parindent}{0.cm} %Absatzeinzug
+    \setlength{\parskip}{0.28\baselineskip plus 0.06\baselineskip minus 0.04\baselineskip}
+    %\setlength{\parsep}{0cm}
+    \renewcommand{\baselinestretch}{1.09}\normalsize
+
+
+    %formel abstände 
+    \setlength{\abovedisplayskip}{-0.4\baselineskip plus 0.1\baselineskip minus 0.2\baselineskip}
+    \setlength{\abovedisplayshortskip}{-0.4\baselineskip plus 0.1\baselineskip minus 0.2\baselineskip}
+    \setlength{\belowdisplayskip}{0.4\baselineskip plus 0.1\baselineskip minus 0.05\baselineskip}
+    \setlength{\belowdisplayshortskip}{0.4\baselineskip plus 0.1\baselineskip minus 0.05\baselineskip}
+}
+
